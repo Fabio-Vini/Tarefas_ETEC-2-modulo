@@ -1,0 +1,108 @@
+import React,{useState} from 'react';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+export default function App() {
+  const [alcool, setValor1] = useState();
+  const [gasolina, setValor2] = useState();
+  const [resultado, setResultado] = useState();
+
+  function dividir(){
+    let result = parseFloat(alcool)  / parseFloat(gasolina)
+  
+
+    if( result <= 0.7 )
+      {
+         setResultado("O alcool e mais vantajoso");
+    }
+    else{
+       setResultado("A Gasolina mais vantajoso");
+    }
+     
+    
+  }
+  return (
+    <View style={styles.container}>
+      <Text style={styles.texto}>
+        Custo melhor
+      </Text>
+      <View style={styles.bloco}>
+        <Text style={styles.textoBloco}> R$ Alcool </Text>
+        <TextInput 
+          style={styles.input} 
+          value={alcool}
+          onChangeText={(texto)=>setValor1(texto)}
+        />
+      </View>
+      <View style={styles.bloco}>
+        <Text style={styles.textoBloco}> R$ Gasolina </Text>
+        <TextInput 
+          style={styles.input} 
+          value={gasolina}
+          onChangeText={(texto)=>setValor2(texto)}
+        />
+      </View>
+    
+      <View style={styles.bloco}>
+        <TouchableOpacity style={styles.botao} onPress={dividir}>
+            <Text style={styles.textBotao}>Caulcular</Text>
+        </TouchableOpacity>
+      </View>
+
+
+    <View style={styles.bloco}>
+          <Text style={styles.texto}>R$ {alcool}</Text>
+          <Text style={styles.texto}>R$ {gasolina}</Text>
+        
+       </View>
+
+      
+
+      <View style={styles.bloco}>
+
+          <Text style={styles.texto}>Resultado: {resultado}
+            </Text>
+        
+       </View>
+    </View>
+  );
+}
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor:'green',
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  texto:{
+    fontSize:30,
+    color:'#FFF'
+  },
+  input:{
+    borderRadius: '100px',
+    borderWidth:3,
+    borderColor:'#FFF',
+    width:'80%'
+  },
+  bloco:{
+
+    borderRadius: '100px',
+    width:'100%',
+    alignItems:'center',
+    marginTop:20
+  },
+  textoBloco:{
+    color: '#FFF',
+    fontSize:20
+  },
+  botao:{
+    backgroundColor:'darkgreen',
+    width:'50%',
+    alignItems:'center',
+    borderRadius: '100px'
+  },
+  textBotao:{
+    fontSize:20,
+    color:'yellow'
+  }
+});
