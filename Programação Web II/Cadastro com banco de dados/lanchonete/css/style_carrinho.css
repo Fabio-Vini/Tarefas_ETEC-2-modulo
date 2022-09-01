@@ -1,0 +1,11 @@
+.carrinho{
+    position: fixed;
+    z-index: 999;
+    width: 29vw;
+    height: 50vh;
+    margin-left: 70vw;
+    top: 2vh;
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+}
