@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Veiculo
+    {
+        //Atributo da Classe
+        private string Modelo;
+
+        //Construtor sem parâmetros 
+        public Veiculo()
+        {
+            this.Modelo = null;
+        }
+
+        //Construtor com parâmetros
+        public Veiculo(string Modelo)
+        {
+            this.Modelo = Modelo;
+        }
+
+        //Propriedade do campo Modelo para acesso ao seu conteúdo
+        public string modelo {
+        get{ return Modelo;  }      //retornar o valor armazenado em um campo.
+        set { Modelo = value;  }    //Armazena o valor no campo.
+        }
+
+        //Metodo que retorna uma string contendo as informações do Modelo
+        public override string ToString()
+        {
+            return (String.Format("Nome: {0}", Modelo ));
+        }
+    }
+}

@@ -1,0 +1,179 @@
+//1-Desenvolva um algoritmo que solicite a entrada de um número e calcule se o número é par ou impar.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Digite um numero: ");
+            double x = double.Parse(Console.ReadLine());
+
+            if(x % 2 == 0){
+                Console.WriteLine("É par");
+            }
+            else
+            {
+                Console.WriteLine("É impar");
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+
+//2- Desenvolva um algoritmo que permita a entrada do nome do usuário e exiba na tela.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Digite seu nome: ");
+            string n = (Console.ReadLine());
+
+            Console.WriteLine("Meu nome é: "+n);
+
+            Console.ReadKey();
+        }
+    }
+}
+
+
+//3-Desenvolva uma calculadora, onde será necessário entrar com a operação, primeiro e segundo valor, exiba o resultado na tela.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double adicao, sub, mult, div;
+
+            Console.WriteLine("Digite dois valores: ");
+
+            Console.Write("1º valor: ");
+            double x = double.Parse(Console.ReadLine());
+
+            Console.Write("2º valor: ");
+            double y = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Qual operação deseja fazer?");
+            Console.WriteLine("1-Adição");
+            Console.WriteLine("2-Subtração");
+            Console.WriteLine("3-Multiplicação");
+            Console.WriteLine("4-Divisão");
+            Console.WriteLine("5-Sair");
+
+            double op = double.Parse(Console.ReadLine());
+
+            adicao = x + y;
+            sub = x - y;
+            mult = x * y;
+            div = x / y;
+
+            switch (op) {
+                case 1:
+                    Console.Write("O resultado da adição é: "+adicao);
+                    break;
+                case 2:
+                    Console.Write("O resultado da subtração é: " +sub);
+                    break;
+                case 3:
+                    Console.Write("O resultado da multiplicação é: " +mult);
+                    break;
+                case 4:
+                    Console.Write("O resultado da divisão é: " +div);
+                    break;
+                case 5:
+                    Console.ReadKey();
+                    break;
+                default:
+                    Console.Write("Opção inválida!");
+                    break;
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+
+//4-Desenvolva um algoritmo que solicite a entrada da idade de um determinado usuário, 
+se for menor que 18 anos exiba na cor vermelha “Sem permissão”, caso seja maior ou 
+igual a 18 anos exiba na cor verde “Permissão concedida”.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Digite sua idade: ");
+            int i = int.Parse(Console.ReadLine());
+
+
+
+            if(i >= 18)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("Acesso permitido!");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("Acesso negado!");
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+//5-Desenvolva um método que receba por parâmetro o um nome, e retorne a frase “Olá meu nome é: {nome recebido}”.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Informe seu nome: ");
+            string nome = (Console.ReadLine());
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Olá meu nome é: " + nome);
+
+            Console.ReadKey();
+        }
+    }
+}

@@ -1,0 +1,655 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace Exercício_03
+
+
+
+{
+    class Program
+    {
+        public struct Carro
+        {
+            public string placa;
+            public string modelo;
+            public int ano;
+            public string cor;
+        }
+
+
+
+        public struct Caminhao
+        {
+            public string placa;
+            public string modelo;
+            public int ano;
+        }
+
+
+
+        static void Main(string[] args)
+        {
+
+
+
+            const int TAM = 2;
+            const int QT = 2;
+            Carro[] c = new Carro[TAM];
+            Caminhao[] C = new Caminhao[QT];
+            int op;
+            bool sair = false;
+            while (sair == false)
+            {
+
+
+
+                Console.Clear();
+                Console.WriteLine("1 - Cadastrar Carro");
+                Console.WriteLine("2 - Consultar Caminhao por modelo");
+
+
+
+                //NÃO VAI SER ULTILIZADO, TEM Q TROCA POR CONSULTAR POR PLACA 'd CARRO\CAMINHAO'
+                Console.WriteLine("3 - Consultar Carro por Ano de Fabricação");
+
+
+
+                //nescessario alterar no main pois troquei o nome;)
+                Console.WriteLine("4 - Cadastrar Caminhao");
+                Console.WriteLine("5 - Consultar Carro por Cor");
+                Console.WriteLine("6 - Exibir todos os carros cadastrados");
+                Console.WriteLine("7 - Exibir todos os caminhoes cadastrados");
+                Console.WriteLine("8- Consultar veiculo por placa");
+                Console.WriteLine("0 - Sair");
+                Console.Write("\nEscolha uma opção: ");
+                op = int.Parse(Console.ReadLine());
+
+
+
+                switch (op)
+                {
+                    case 1:
+                        cadastraCarro(c);
+                        break;
+
+
+
+                    case 2:
+                        ConsultadeCaminhao(C);
+                        break;
+
+
+
+                    case 3:
+                        consultaCarroAnoFab(c);
+                        break;
+
+
+
+                    case 4:
+                        CadastrarCaminhao(C);
+                        break;
+
+
+
+                    case 5:
+                        consultaCarroCor(c);
+                        break;
+
+
+
+                    case 6:
+                        exibirTodosCarrosCadastrados(c);
+                        break;
+
+
+
+                    case 7:
+                        exibirTodosCaminhoesCadastrados(C);
+                        break;
+
+
+
+                    case 8:
+                        Consultaplacas(C, c);
+                        break;
+
+
+
+                    //case *: exibirTodosCaminhoesCadastrados(C);
+                    //break;
+
+
+
+                    case 0:
+                        Console.Write("\nPressione qualquer tecla para sair...");
+                        Console.ReadKey();
+                        sair = true;
+                        break;
+                }
+            }
+        }
+
+
+
+
+
+        static void consultaCarroCor(Carro[] c)
+
+
+
+        {
+            string cor;
+            const int TAM = 2;
+            Console.Clear();
+            Console.WriteLine("***** Consulta por cor do veículo *****\n");
+            Console.Write("Informe a cor desejada: ");
+            cor = Console.ReadLine();
+            Console.WriteLine();
+            for (int i = 0; i < TAM; i++)
+            {
+
+
+
+                Console.WriteLine("Placa / Modelo / Ano / Cor");
+
+
+
+                if (c[i].cor == cor)
+
+
+
+                {
+
+
+
+                    Console.WriteLine(c[i].placa + " " + c[i].modelo + " " + (c[i].ano).ToString() + " " + c[i].cor);
+
+
+
+                }
+
+
+
+            }
+
+
+
+            Console.Write("\nPressione Enter para retornar ao menu principal");
+
+
+
+            Console.ReadKey();
+
+
+
+        }
+
+
+
+        static void exibirTodosCarrosCadastrados(Carro[] c)
+
+
+
+        {
+
+
+
+            const int TAM = 2;
+
+
+
+            Console.Clear();
+
+
+
+            Console.WriteLine("Placa / Modelo / Ano / Cor");
+
+
+
+            for (int i = 0; i < TAM; i++)
+
+
+
+            {
+
+
+
+                Console.WriteLine(c[i].placa + " " + c[i].modelo + " " + (c[i].ano).ToString() + " " + c[i].cor);
+
+
+
+            }
+
+
+
+            Console.Write("\nPressione Enter para retornar ao menu principal");
+
+
+
+            Console.ReadKey();
+
+
+
+        }
+
+
+
+
+
+        static void consultaCarroModelo(Carro[] c)
+
+
+
+        {
+
+
+
+            string modelo;
+
+
+
+            const int TAM = 2;
+
+
+
+            Console.Clear();
+
+
+
+            Console.WriteLine("***** Consulta por ano de fabricação *****\n");
+
+
+
+            Console.Write("Informe o modelo desejado: ");
+
+
+
+            modelo = Console.ReadLine();
+
+
+
+            Console.WriteLine();
+
+
+
+            Console.WriteLine("Modelo / Ano / Cor");
+
+
+
+            for (int i = 0; i < TAM; i++)
+
+
+
+            {
+
+
+
+                if (c[i].modelo == modelo)
+
+
+
+                {
+
+
+
+                    Console.WriteLine(c[i].placa + " " + c[i].modelo + " " + (c[i].ano).ToString() + " " + c[i].cor);
+
+
+
+                }
+
+
+
+            }
+
+
+
+            Console.Write("\nPressione Enter para retornar ao menu principal");
+
+
+
+            Console.ReadKey();
+
+
+
+        }
+
+
+
+
+
+        static void consultaCarroAnoFab(Carro[] c)
+
+
+
+        {
+
+
+
+            int ano;
+
+
+
+            const int TAM = 2;
+
+
+
+            Console.Clear();
+
+
+
+            Console.WriteLine("***** Consulta por ano de fabricação *****\n");
+
+
+
+            Console.Write("Informe o ano desejado com 4 dígitos: ");
+
+
+
+            ano = int.Parse(Console.ReadLine());
+
+
+
+            Console.WriteLine();
+
+
+
+            for (int i = 0; i < TAM; i++)
+
+
+
+            {
+
+
+
+                Console.WriteLine("Placa / Modelo / Ano / Cor");
+
+
+
+                if (c[i].ano == ano)
+
+
+
+                {
+
+
+
+                    Console.WriteLine(c[i].placa + " " + c[i].modelo + " " + (c[i].ano).ToString() + " " + c[i].modelo);
+
+
+
+                }
+
+
+
+            }
+
+
+
+            Console.Write("\nPressione Enter para retornar ao menu principal");
+
+
+
+            Console.ReadKey();
+
+
+
+        }
+
+
+
+
+
+        static void cadastraCarro(Carro[] c)
+        {
+
+
+
+            const int TAM = 2;
+            Console.Clear();
+
+
+
+            Console.WriteLine("***** Cadastramento de Carro *****\n");
+
+
+
+            for (int i = 0; i < TAM; i++)
+
+
+
+            {
+                Console.Write("\nQual é a placa do {0} carro? ", i + 1);
+                c[i].placa = Console.ReadLine();
+
+
+
+                Console.Write("Qual o modelo do carro? ");
+                c[i].modelo = Console.ReadLine();
+
+
+
+                Console.Write("Qual o ano do carro? ");
+                c[i].ano = int.Parse(Console.ReadLine());
+
+
+
+                Console.Write("Qual é a cor do carro? ");
+                c[i].cor = Console.ReadLine();
+            }
+
+
+
+            Console.Write("\nPressione Enter para retornar ao menu principal");
+            Console.ReadKey();
+        }
+
+        //CONSULTA CAMNIHAO//
+
+
+
+        static void ConsultadeCaminhao(Caminhao[] C)
+        {
+
+
+
+            string modelo;
+            const int QT = 2;
+            Console.Clear();
+            Console.WriteLine("***** Consulta por modelo do caminhão *****\n");
+            Console.Write("Informe o modelo desejado: ");
+            modelo = Console.ReadLine();
+            for (int i = 0; i < QT; i++)
+            {
+
+
+
+                Console.WriteLine("Placa / Modelo / Ano");
+
+
+
+                if (C[i].modelo == modelo)
+
+
+
+                {
+
+
+
+                    Console.WriteLine(C[i].placa + " " + C[i].modelo + " " + (C[i].ano).ToString());
+
+
+
+                }
+
+
+
+            }
+
+
+
+            Console.Write("\nPressione Enter para retornar ao menu principal");
+
+
+
+            Console.ReadKey();
+        }
+
+
+
+        //CADASTRAR CAMINJHAO//
+        static void CadastrarCaminhao(Caminhao[] C)
+        {
+
+
+
+            const int QT = 2;
+            Console.Clear();
+
+
+
+            Console.WriteLine("***** Cadastro de Caminhao *****\n");
+
+
+
+            for (int i = 0; i < QT; i++)
+
+
+
+            {
+                Console.Write("\nQual é a placa do {0} caminhao? ", i + 1);
+                C[i].placa = Console.ReadLine();
+
+
+
+                Console.Write("Qual o modelo do caminhao? ");
+                C[i].modelo = Console.ReadLine();
+
+
+
+                Console.Write("Qual o ano do caminhao? ");
+                C[i].ano = int.Parse(Console.ReadLine());
+            }
+
+
+
+            Console.Write("\nPressione Enter para retornar ao menu principal");
+            Console.ReadKey();
+        }
+
+
+
+        //EXIBIR TODOS OS CAMINHOES//
+
+
+
+        static void exibirTodosCaminhoesCadastrados(Caminhao[] C)
+
+
+
+        {
+
+
+
+            const int QT = 2;
+
+
+
+            Console.Clear();
+
+
+
+            Console.WriteLine("Placa / Modelo / Ano");
+
+
+
+            for (int i = 0; i < QT; i++)
+
+
+
+            {
+
+
+
+                Console.WriteLine(C[i].placa + " " + C[i].modelo + " " + (C[i].ano).ToString());
+
+
+
+            }
+
+
+
+            Console.Write("\nPressione Enter para retornar ao menu principal");
+
+
+
+            Console.ReadKey();
+
+
+
+        }
+
+
+
+        //CONSULTAR PLACA DOS VEICULOS CARRO/CAMINHAO//
+        static void Consultaplacas(Caminhao[] C, Carro[]c)
+        {
+
+
+
+            string placa;
+            const int QT =  2;
+            Console.Clear();
+            Console.WriteLine("***** Consulta por placa do veiculo *****\n");
+            Console.Write("Informe a placa desejada: ");
+            placa = Console.ReadLine();
+            for (int i = 0; i < QT; i++)
+            {
+
+
+
+                Console.WriteLine("Placa");
+
+
+
+                if (C[i].placa == placa)
+
+
+
+                {
+
+
+
+                    Console.WriteLine(C[i].placa + " " + C[i].modelo + " " + (C[i].ano).ToString() + " " + C[i].modelo);
+
+
+
+                }
+
+                else if(c[i].placa == placa)
+                    {
+                    Console.WriteLine(c[i].placa + " " + c[i].modelo + " " + (c[i].ano).ToString() + " " + c[i].modelo);
+                }
+
+             
+            }
+
+
+
+            Console.Write("\nPressione Enter para retornar ao menu principal");
+
+
+
+            Console.ReadKey();
+        }
+
+
+
+
+
+
+
+    }
+}
